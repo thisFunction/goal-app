@@ -12,4 +12,4 @@ It will become a part of a larger application I'm currently working on.
 
 *Node.js needs to be in version 10 to install node-sass 4.
 
-Type "node -v" in termial to check current version.
+Type "node -v" in terminal to check your current version.
