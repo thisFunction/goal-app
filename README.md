@@ -1,8 +1,15 @@
 # goal-app
-New Year, new app. Goals I want to achieve in 2019.
+New Year, new app. This app will have a list of personal goals I want to achieve in 2019.
 
-This will be a part of a larger application I'm currently working on.
+It will become a part of a larger application I'm currently working on.
 
-Clone repo "npm install" then run "npm start" in terminal.
--Node.js needs to be in version 10 to install node-sass 4.
-Open localhost:3000 in browser.
+*To run locally:*
+
+1. Clone repo
+2. "npm install" (see * if fails)
+3. "npm start"
+4. Open "localhost:3000" in browser.
+
+*Node.js needs to be in version 10 to install node-sass 4.
+
+Type "node -v" in termial to check current version.
