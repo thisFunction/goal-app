@@ -2,6 +2,7 @@ import '../stylesheets/ui.scss'
 import { MdTerrain } from 'react-icons/md'
 import { TiWeatherSnow } from 'react-icons/ti'
 import { FaCalendarAlt } from 'react-icons/fa'
+import { PropTypes } from 'react'
 
 const percentToDecimal = (decimal) => {
     return `${decimal * 100}%`
@@ -34,10 +35,16 @@ export const SkiDayCount = ({ total, powder, backcountry, goal }) => (
     </div>
 )
 
-//I prefer defaultProps explicitly defined here over arguments. 👻
 SkiDayCount.defaultProps = {
     total: 50,
     powder: 50,
     backcountry: 15,
     goal: 100
+}
+
+SkiDayCount.propTypes = {
+    total: PropTypes.number,
+    powder: PropTypes.number,
+    backcountry: PropTypes.number,
+    goal: PropTypes.number.isRequired
 }
