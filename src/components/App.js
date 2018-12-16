@@ -1,7 +1,8 @@
-import { createClass } from 'react'
-import { SkiDayList } from './SkiDayList'
-import { SkiDayCount } from './SkiDayCount'
+import { createClass } from 'react';
+import { SkiDayList } from './SkiDayList';
+import { SkiDayCount } from './SkiDayCount';
 import { AddDayForm } from './AddDayForm';
+import { Menu } from './Menu';
 
 export const App = createClass({
     getInitialState() {
@@ -35,6 +36,7 @@ export const App = createClass({
     render() {
         return (
             <div className="app">
+                <Menu />
                 {(this.props.location.pathname === "/") ?
                     <SkiDayCount
                         total={this.countDays()}
