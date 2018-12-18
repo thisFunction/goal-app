@@ -10,24 +10,20 @@ export const App = createClass({
             allSkiDays: [
                 {
                     resort: "Squaw Valley",
-                    date: new Date("1/2/2019"),
+                    date: '2016-01-03',
                     powder: true,
                     backcountry: true
-                },
-                {
-                    resort: "Kirkwood",
-                    date: new Date("3/28/2019"),
-                    powder: false,
-                    backcountry: true
-                },
-                {
-                    resort: "Mt. Tellac",
-                    date: new Date("4/2/2019"),
-                    powder: true,
-                    backcountry: false
                 }
             ]
         }
+    },
+    addDay(newDay) {
+        this.setState({
+            allSkiDays: [
+                ...this.state.allSkiDays,
+                newDay
+            ]
+        })
     },
     countDays(filter) {
         const { allSkiDays } = this.state;
@@ -43,7 +39,7 @@ export const App = createClass({
                         powder={this.countDays("powder")}
                         backcountry={this.countDays("backcountry")} /> :
                     (this.props.location.pathname === "/add-day") ?
-                        <AddDayForm /> :
+                        <AddDayForm onNewDay={this.addDay} /> :
                         <SkiDayList days={this.state.allSkiDays}
                             filter={this.props.params.filter} />
                 }
