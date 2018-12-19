@@ -1,4 +1,5 @@
 import constants from '../constants'
+import { combineReducers } from 'redux';
 
 export const goal = (state = 10, action) =>
     (action.type === constants.SET_GOAL) ? parseInt(action.payload) : state
@@ -52,3 +53,13 @@ export const suggestions = (state = [], action) => {
             return state
     }
 }
+
+export default combineReducers({
+    allSkiDays,
+    goal,
+    errors,
+    resortNames: combineReducers({
+        fetching,
+        suggestions
+    })
+})
