@@ -8,27 +8,45 @@ window.React = React;
 
 render(
 	<Router history={hashHistory}>
-		<Route path="/" component={App}/>
+		<Route path="/" component={App} />
 		<Route path="/list-days" component={App}>
-			<Route path=":filter" component={App}/>
+			<Route path=":filter" component={App} />
 		</Route>
-		<Route path="/add-day" component={App}/>
-		<Route path="*" component={Whoops404}/>
+		<Route path="/add-day" component={App} />
+		<Route path="*" component={Whoops404} />
 	</Router>,
 	document.getElementById('react-container')
 );
 
-import C from './constants';
-import appReducer  from './store/reducers';
-import {createStore } from 'redux';
+import storeFactory from './store'
+import { addDay, setGoal, removeDay, addError, clearError, changeSuggestions, clearSuggestions } from './actions'
 
-const initialState = (localStorage['redux-store']) ? JSON.parse(localStorage['redux-store']) : {};
+const store = storeFactory()
 
-const store = createStore(appReducer, initialState);
+store.dispatch(
+	addDay("Zakopane", "2014-2-13")
+)
 
-const saveStateToLocalStorage= () =>{
-	const state = JSON.stringify(store.getState());
-	localStorage['redux-store'] = state;
-};
+store.dispatch(
+	setGoal(32)
+)
 
-store.subscribe(saveStateToLocalStorage);
+store.dispatch(
+	removeDay("2014-2-13")
+)
+
+store.dispatch(
+	addError("server is down")
+)
+
+store.dispatch(
+	clearError(0)
+)
+
+store.dispatch(
+	changeSuggestions(["1","2","3"])
+)
+
+store.dispatch(
+	clearSuggestions()
+)
