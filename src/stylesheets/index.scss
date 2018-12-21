@@ -9,12 +9,16 @@ div.app {
   margin: 0;
 }
 
+body {
+  font-size: 55%;
+}
+
 h1, label {
   margin: 0
 }
 
 div.app {
-  background-image: url('http://localhost:3333/rowdy.jpg');
+  // background-image: url('http://localhost:3333/rowdy.jpg');
   background-size: cover;
   background-position: center;
 }
